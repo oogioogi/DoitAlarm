@@ -8,23 +8,31 @@
 import Foundation
 import UIKit
 
-enum NewAddElementsEnum {
+enum NibCellsEnum {
     case titleView
     case imageAndPlace
     case alarmAndRepeat
-    
 }
 
-// MARK: - 이넘 " NewAddElementsEnum" 요소 만큼 프로토콜 정의
-protocol NewAddElementProtocol {
-    var type: NewAddElementsEnum { get }
-    var sectionString: String { get }
-    var rowCount: Int { get }
+struct LocalValuesEnum {
+    var title: String?
+    var image: Data?
+    var time: Date?
+    var place: String?
+    var cycle: Int?
+}
+
+protocol NibCellsProtocol {
+    var type: NibCellsEnum {get}
+    var sectionTitle: String {get}
+    var rowCount: Int {get}
 }
 
 class NewAddViewModel {
+    
     static var shared = NewAddViewModel()
-    var items = [NewAddElementProtocol]()
+    
+    var nibCells: [NibCellsProtocol] = [TitleViewModel(), ImageAndplaceModel(), AlarmAndRepeatViewModel()]
     
     init() {
         // 제이슨 파일의 내용을 불러와서 배열 형태로 저장
@@ -33,71 +41,56 @@ class NewAddViewModel {
         
     }
 }
-// MARK: - 프로토콜 " titleView "구현
-class NewAddViewTitleView: NewAddElementProtocol {
-    var type: NewAddElementsEnum {
+
+class TitleViewModel: NibCellsProtocol {
+    
+    var type: NibCellsEnum {
         return .titleView
     }
     
-    var sectionString: String {
-        return " 알람 제목"
+    var sectionTitle: String {
+        return "알람 제목"
     }
     
     var rowCount: Int {
         return 1
     }
     
-    var title: String?
-    
-    init() {
-    }
+    init() { }
 }
 
-
-// MARK: - 프로토콜 " NewAddElementProtocol "구현
-class NewAddViewModelImageAndPlace: NewAddElementProtocol {
-    var type: NewAddElementsEnum {
+class ImageAndplaceModel: NibCellsProtocol {
+    
+    var type: NibCellsEnum {
         return .imageAndPlace
     }
     
-    var sectionString: String {
-        return " 알람 해지 장소 및 위치"
+    var sectionTitle: String {
+        return "알람 해제 장소 및 위치"
     }
     
     var rowCount: Int {
         return 1
     }
     
-    var image: Data?
-    var place: String?
-    
-    init() {
-
-    }
-    
+    init() { }
 }
 
-// MARK: - 프로토콜 " alarmAndRepeat "구현
-class NewAddViewAlarmAndRepeat: NewAddElementProtocol {
-    var type: NewAddElementsEnum {
+class AlarmAndRepeatViewModel: NibCellsProtocol {
+    
+    var type: NibCellsEnum {
         return .alarmAndRepeat
     }
     
-    var sectionString: String {
-        return " 알람 시간 및 반복 횟수"
+    var sectionTitle: String {
+        return "알람 울림 싸이클"
     }
     
     var rowCount: Int {
         return 1
     }
     
-    var alarmTime: Date?
-    var cycle: Int16?
-    
-    init() {
-
-    }
+    init() { }
 }
-
 
 
