@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 enum NewAddElementsEnum {
-    case targetImage
-    case targetPlace
-    case titleInput
-    case targettime
-    case targetButton
+    case titleView
+    case imageAndPlace
+    case alarmAndRepeat
+    
 }
 
+// MARK: - 이넘 " NewAddElementsEnum" 요소 만큼 프로토콜 정의
 protocol NewAddElementProtocol {
     var type: NewAddElementsEnum { get }
     var sectionString: String { get }
@@ -23,6 +23,7 @@ protocol NewAddElementProtocol {
 }
 
 class NewAddViewModel {
+    static var shared = NewAddViewModel()
     var items = [NewAddElementProtocol]()
     
     init() {
@@ -32,3 +33,74 @@ class NewAddViewModel {
         
     }
 }
+// MARK: - 프로토콜 " titleView "구현
+class NewAddViewTitleView: NewAddElementProtocol {
+    var type: NewAddElementsEnum {
+        return .titleView
+    }
+    
+    var sectionString: String {
+        return " 알람 제목"
+    }
+    
+    var rowCount: Int {
+        return 1
+    }
+    
+    var title: String
+    
+    init(title: String) {
+        self.title = title
+    }
+}
+
+
+// MARK: - 프로토콜 " NewAddElementProtocol "구현
+class NewAddViewModelImageAndPlace: NewAddElementProtocol {
+    var type: NewAddElementsEnum {
+        return .imageAndPlace
+    }
+    
+    var sectionString: String {
+        return " 알람 해지 장소 및 위치"
+    }
+    
+    var rowCount: Int {
+        return 1
+    }
+    
+    var image: Data
+    var place: String
+    
+    init(image: Data, place: String) {
+        self.image = image
+        self.place = place
+    }
+    
+}
+
+// MARK: - 프로토콜 " alarmAndRepeat "구현
+class NewAddViewAlarmAndRepeat: NewAddElementProtocol {
+    var type: NewAddElementsEnum {
+        return .alarmAndRepeat
+    }
+    
+    var sectionString: String {
+        return " 알람 시간 및 반복 횟수"
+    }
+    
+    var rowCount: Int {
+        return 1
+    }
+    
+    var alarmTime: Date
+    var cycle: Int16
+    
+    init(alarmTime: Date, cycle: Int16) {
+        self.alarmTime = alarmTime
+        self.cycle = cycle
+    }
+}
+
+
+

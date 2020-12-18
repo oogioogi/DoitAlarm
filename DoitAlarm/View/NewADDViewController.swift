@@ -17,7 +17,9 @@ class NewADDViewController: UIViewController {
         newAddTableView.rowHeight = UITableView.automaticDimension
         newAddTableView.estimatedRowHeight = 150
         
+        newAddTableView.register(TitleViewCell.nib, forCellReuseIdentifier: TitleViewCell.identifier)
         newAddTableView.register(ImageAndPlaceViewCell.nib, forCellReuseIdentifier: ImageAndPlaceViewCell.identifier)
+        newAddTableView.register(AlarmAndRepeatViewCell.nib, forCellReuseIdentifier: AlarmAndRepeatViewCell.identifier)
     }
     
 
@@ -30,6 +32,11 @@ class NewADDViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    
+    
     @IBAction func saveAddNewViewData(_ sender: UIBarButtonItem) {
         
         // [ ] 따로 저장 공간을 만들어 내용 저장
@@ -47,14 +54,42 @@ class NewADDViewController: UIViewController {
 }
 
 extension NewADDViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return NewAddViewModel.shared.items.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return NewAddViewModel.shared.items[section].rowCount
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return NewAddViewModel.shared.items[section].sectionString
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageAndPlaceViewCell.identifier, for: indexPath) as? ImageAndPlaceViewCell else { return UITableViewCell() }
         
-        return cell
+        let item = NewAddViewModel.shared.items[indexPath.section]
+        
+        switch item.type {
+        case .titleView:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: TitleViewCell.identifier, for: indexPath) as? TitleViewCell {
+                cell.item = item
+                return cell
+            }
+        case .imageAndPlace:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ImageAndPlaceViewCell.identifier, for: indexPath) as? ImageAndPlaceViewCell {
+                cell.item = item
+                return cell
+            }
+        case .alarmAndRepeat:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: AlarmAndRepeatViewCell.identifier, for: indexPath) as? AlarmAndRepeatViewCell {
+                cell.item = item
+                return cell
+            }
+        }
+        
+        return UITableViewCell()
     }
     
     

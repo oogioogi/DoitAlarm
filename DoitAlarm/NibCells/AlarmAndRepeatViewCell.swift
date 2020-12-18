@@ -30,6 +30,14 @@ class AlarmAndRepeatViewCell: UITableViewCell {
         // [ ] code
     }
     
+    var item: NewAddElementProtocol? {
+        didSet {
+            guard let item = item as? NewAddViewAlarmAndRepeat else { return }
+            
+            // targetTime
+            // targetButton
+        }
+    }
     
     // MARK: - identifier 자신의 클래스 이름을 디스크라이빙 해서 문자로 저장
     // 컴퓨티드 프로퍼티는 var로 한다

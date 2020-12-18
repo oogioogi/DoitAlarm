@@ -21,6 +21,7 @@ class TitleViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        print("seleted = TitleViewCell")
     }
     
     // 이 함수는 셀을 재 사용할때 호출한다
@@ -29,6 +30,13 @@ class TitleViewCell: UITableViewCell {
         // [ ] code
     }
     
+    var item: NewAddElementProtocol? {
+        didSet {
+            guard let item = item as? NewAddViewTitleView else { return }
+            
+            titleInput.text = item.title
+        }
+    }
     
     // MARK: - identifier 자신의 클래스 이름을 스크라이빙 해서 문자로 저장
     // 컴퓨티드 프로퍼티는 var로 한다
