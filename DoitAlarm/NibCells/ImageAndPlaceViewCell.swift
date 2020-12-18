@@ -33,9 +33,8 @@ class ImageAndPlaceViewCell: UITableViewCell {
     var item: NewAddElementProtocol? {
         didSet{
             guard let item = item as? NewAddViewModelImageAndPlace else { return }
-            
-            targetImage.image = UIImage(data: item.image)
-            tragetPlace.text = item.place
+            //item.image
+            item.place = tragetPlace.text ?? ""
         }
     }
     

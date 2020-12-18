@@ -40,6 +40,13 @@ class NewADDViewController: UIViewController {
     @IBAction func saveAddNewViewData(_ sender: UIBarButtonItem) {
         
         // [ ] 따로 저장 공간을 만들어 내용 저장
+        let inputedTitle = NewAddViewTitleView()
+        NewAddViewModel.shared.items.append(inputedTitle)
+        let inputedImageAndPlace = NewAddViewModelImageAndPlace()
+        NewAddViewModel.shared.items.append(inputedImageAndPlace)
+        let inputedAlarmAndRepeat = NewAddViewAlarmAndRepeat()
+        NewAddViewModel.shared.items.append(inputedAlarmAndRepeat)
+        
         
         
         

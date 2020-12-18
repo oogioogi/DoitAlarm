@@ -47,10 +47,9 @@ class NewAddViewTitleView: NewAddElementProtocol {
         return 1
     }
     
-    var title: String
+    var title: String?
     
-    init(title: String) {
-        self.title = title
+    init() {
     }
 }
 
@@ -69,12 +68,11 @@ class NewAddViewModelImageAndPlace: NewAddElementProtocol {
         return 1
     }
     
-    var image: Data
-    var place: String
+    var image: Data?
+    var place: String?
     
-    init(image: Data, place: String) {
-        self.image = image
-        self.place = place
+    init() {
+
     }
     
 }
@@ -93,12 +91,11 @@ class NewAddViewAlarmAndRepeat: NewAddElementProtocol {
         return 1
     }
     
-    var alarmTime: Date
-    var cycle: Int16
+    var alarmTime: Date?
+    var cycle: Int16?
     
-    init(alarmTime: Date, cycle: Int16) {
-        self.alarmTime = alarmTime
-        self.cycle = cycle
+    init() {
+
     }
 }
 

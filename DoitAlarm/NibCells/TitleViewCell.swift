@@ -34,7 +34,7 @@ class TitleViewCell: UITableViewCell {
         didSet {
             guard let item = item as? NewAddViewTitleView else { return }
             
-            titleInput.text = item.title
+            item.title = titleInput.text ?? "제목을 넣으세요!"
         }
     }
     

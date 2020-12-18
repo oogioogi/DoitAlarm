@@ -34,8 +34,8 @@ class AlarmAndRepeatViewCell: UITableViewCell {
         didSet {
             guard let item = item as? NewAddViewAlarmAndRepeat else { return }
             
-            // targetTime
-            // targetButton
+            item.alarmTime = Date()
+            item.cycle = 1
         }
     }
     
