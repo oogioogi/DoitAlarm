@@ -20,10 +20,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eNy-gf-gRa">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8p-iy-piI">
-                                <rect key="frame" x="274" y="126.5" width="46" height="23.5"/>
+                                <rect key="frame" x="274" y="131.5" width="46" height="18.5"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
@@ -37,6 +37,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="targetButton" destination="y8p-iy-piI" id="CsO-mw-CC4"/>
+                <outlet property="targetTime" destination="eNy-gf-gRa" id="O1E-9O-S8O"/>
+            </connections>
             <point key="canvasLocation" x="-310.14492753623193" y="152.67857142857142"/>
         </tableViewCell>
     </objects>

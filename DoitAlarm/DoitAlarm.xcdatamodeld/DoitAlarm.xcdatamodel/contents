@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CoreDatas" representedClassName="CoreDatas" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="targetAlarm" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="targetImage" optional="YES" attributeType="Binary"/>
         <attribute name="targetPlace" optional="YES" attributeType="String"/>
@@ -8,6 +9,6 @@
         <attribute name="targetTitle" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CoreDatas" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="CoreDatas" positionX="-54" positionY="-9" width="128" height="28"/>
     </elements>
 </model>

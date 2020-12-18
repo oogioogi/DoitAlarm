@@ -10,6 +10,26 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
+    
+    var token: NSObjectProtocol?
+    
+    // 선언과 동시에 클로져를 통해 초기화
+    let formatter: DateFormatter = {
+        let format = DateFormatter()
+        format.dateStyle = .long
+        format.timeStyle = .short
+        format.locale = Locale(identifier: "KO_KR")
+        return format
+    }()
+    
+    // 코어 데이터의 내용을 미리 읽어서 불러옴
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DataManager.shared.fetchMemo()
+        mainTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,10 +37,18 @@ class MainViewController: UIViewController {
         mainTableView?.rowHeight = UITableView.automaticDimension
         mainTableView?.estimatedRowHeight = 150
         
-        mainTableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.indetifier)
+        mainTableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.identifier)
         
+        token = NotificationCenter.default.addObserver(forName: NewADDViewController.NowInsertedCoreData, object: nil, queue: OperationQueue.main, using: { [weak self](Notification) in
+            self?.mainTableView.reloadData()
+        })
     }
     
+    deinit {
+        if let token = token {
+            NotificationCenter.default.removeObserver(token, name: NewADDViewController.NowInsertedCoreData, object: nil)
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -37,12 +65,16 @@ class MainViewController: UIViewController {
 
 extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2 //DataManager.shared.coreDataList.count
+        DataManager.shared.coreDataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.indetifier, for: indexPath) as? MainTableViewCell else { return UITableViewCell() }
-        cell.dateLabel.text = "\(Date())"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as? MainTableViewCell else { return UITableViewCell() }
+        
+        let coreDatas = DataManager.shared.coreDataList[indexPath.row]
+        cell.titleLine.text = coreDatas.targetTitle
+        cell.placeLabel.text = coreDatas.targetPlace
+        cell.dateLabel.text = formatter.string(from: Date())
         return cell
     }
 }

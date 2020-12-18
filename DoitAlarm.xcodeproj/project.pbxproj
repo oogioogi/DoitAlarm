@@ -25,6 +25,8 @@
 		86239E52258B2D8800754EA4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86239E51258B2D8800754EA4 /* DataManager.swift */; };
 		86239E5A258B406900754EA4 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86239E58258B406900754EA4 /* MainTableViewCell.swift */; };
 		86239E5B258B406900754EA4 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86239E59258B406900754EA4 /* MainTableViewCell.xib */; };
+		863E0D7B258C5D9100FD54EE /* NewADDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0D7A258C5D9100FD54EE /* NewADDViewController.swift */; };
+		863E0D7E258C655300FD54EE /* NewAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0D7D258C655300FD54EE /* NewAddViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		86239E51258B2D8800754EA4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		86239E58258B406900754EA4 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		86239E59258B406900754EA4 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		863E0D7A258C5D9100FD54EE /* NewADDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADDViewController.swift; sourceTree = "<group>"; };
+		863E0D7D258C655300FD54EE /* NewAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				86239E48258B2C2400754EA4 /* MainViewController.swift */,
+				863E0D7A258C5D9100FD54EE /* NewADDViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 		86239E2B258B22E600754EA4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				863E0D7D258C655300FD54EE /* NewAddViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -209,9 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				863E0D7E258C655300FD54EE /* NewAddViewModel.swift in Sources */,
 				86239E5A258B406900754EA4 /* MainTableViewCell.swift in Sources */,
 				86239E27258B22AF00754EA4 /* CoreDatas+CoreDataProperties.swift in Sources */,
 				86239E52258B2D8800754EA4 /* DataManager.swift in Sources */,
+				863E0D7B258C5D9100FD54EE /* NewADDViewController.swift in Sources */,
 				86239E26258B22AF00754EA4 /* CoreDatas+CoreDataClass.swift in Sources */,
 				86239E3D258B249500754EA4 /* ImageAndPlaceViewCell.swift in Sources */,
 				86239E35258B243E00754EA4 /* TitleViewCell.swift in Sources */,
