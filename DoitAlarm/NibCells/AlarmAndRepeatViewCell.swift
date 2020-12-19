@@ -13,6 +13,12 @@ class AlarmAndRepeatViewCell: UITableViewCell {
     @IBOutlet weak var targetTime: UIDatePicker!
     @IBOutlet weak var targetButton: UIButton!
     
+    var alarmProtocol: alarmTimeProtocolDelegate?
+    
+    @IBAction func pressSetTimeButton(_ sender: UIButton) {
+        alarmProtocol?.alarmTimeProtocol(Time: targetTime.date)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

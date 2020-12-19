@@ -58,6 +58,7 @@
             <connections>
                 <outlet property="dateLabel" destination="LT7-w2-jrf" id="ZDT-Qc-qqG"/>
                 <outlet property="placeLabel" destination="K8K-Pn-dVO" id="tpq-Rb-i3e"/>
+                <outlet property="placePhoto" destination="AOh-dB-KYo" id="xzh-iz-JNW"/>
                 <outlet property="titleLine" destination="UzL-PX-YOb" id="H7t-B3-vt3"/>
             </connections>
             <point key="canvasLocation" x="63.768115942028992" y="152.67857142857142"/>

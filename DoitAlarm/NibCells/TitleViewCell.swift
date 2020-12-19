@@ -10,22 +10,26 @@ import UIKit
 
 class TitleViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleInput: UITextField!
     
-    var inputedTitle: String {
-        return titleInput.text ?? ""
+    @IBOutlet weak var titleInputLabel: UILabel!
+    @IBOutlet weak var addTitleButton: UIButton!
+    
+    var alertProtocol: alertProtocolDelegate?
+    
+    @IBAction func pressAddButton(_ sender: UIButton) {
+
+        alertProtocol?.alertProtocol(Title: "New Title")
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-        print("seleted = TitleViewCell")
     }
     
     // 이 함수는 셀을 재 사용할때 호출한다
@@ -45,3 +49,5 @@ class TitleViewCell: UITableViewCell {
         return UINib(nibName: identifier, bundle: nil)
     }
 }
+
+

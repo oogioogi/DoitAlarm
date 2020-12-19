@@ -13,8 +13,15 @@ class ImageAndPlaceViewCell: UITableViewCell {
     @IBOutlet weak var targetImage: UIImageView!
     @IBOutlet weak var tragetPlace: UILabel!
     
+    var imageAndPlaceProtocol: imageAndPlaceProtocolDelegate?
+    
     var inputedPlace: String {
         return tragetPlace.text ?? ""
+    }
+    
+    @IBAction func pressCameraButton(_ sender: UIButton) {
+        let image = UIImage(named: "money.png")?.pngData()
+        imageAndPlaceProtocol?.imageAndPlaceProtocol(Image: image!, Place: "Current Place")
     }
     
     override func awakeFromNib() {

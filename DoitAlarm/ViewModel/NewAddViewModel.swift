@@ -31,6 +31,7 @@ protocol NibCellsProtocol {
 class NewAddViewModel {
     
     static var shared = NewAddViewModel()
+    var localValueEnum = LocalValuesEnum()
     
     var nibCells: [NibCellsProtocol] = [TitleViewModel(), ImageAndplaceModel(), AlarmAndRepeatViewModel()]
     

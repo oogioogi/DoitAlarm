@@ -12,6 +12,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLine: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var placePhoto: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

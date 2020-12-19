@@ -75,6 +75,10 @@ extension MainViewController : UITableViewDataSource {
         cell.titleLine.text = coreDatas.targetTitle
         cell.placeLabel.text = coreDatas.targetPlace
         cell.dateLabel.text = formatter.string(from: Date())
+        
+        if let placePhoto = coreDatas.targetImage, !placePhoto.isEmpty {
+            cell.placePhoto.image = UIImage(data: placePhoto)
+        }
         return cell
     }
 }

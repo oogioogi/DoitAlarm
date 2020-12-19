@@ -23,8 +23,8 @@
                             <constraint firstAttribute="height" constant="120" id="hs2-5W-jpI"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XX-Y9-F5y">
-                        <rect key="frame" x="155" y="19" width="66" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위도, 경도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XX-Y9-F5y">
+                        <rect key="frame" x="155" y="19" width="68" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,11 +35,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfi-aY-vAf">
+                        <rect key="frame" x="272" y="103" width="28" height="27"/>
+                        <state key="normal" image="camera.circle" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                        </state>
+                        <connections>
+                            <action selector="pressCameraButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SPX-8P-ux0"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1Bl-ke-qfe" firstAttribute="leading" secondItem="QWx-r0-eua" secondAttribute="trailing" constant="25" id="BNG-jI-eJf"/>
                     <constraint firstItem="1Bl-ke-qfe" firstAttribute="top" secondItem="9XX-Y9-F5y" secondAttribute="bottom" constant="8" symbolic="YES" id="CG5-bm-OsX"/>
                     <constraint firstAttribute="bottom" secondItem="QWx-r0-eua" secondAttribute="bottom" constant="15" id="EP1-rr-L4b"/>
+                    <constraint firstAttribute="trailing" secondItem="Bfi-aY-vAf" secondAttribute="trailing" constant="20" id="KKE-dE-Ox3"/>
+                    <constraint firstAttribute="bottom" secondItem="Bfi-aY-vAf" secondAttribute="bottom" constant="20" id="My3-Xk-jdC"/>
                     <constraint firstItem="9XX-Y9-F5y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="N0q-75-OYY"/>
                     <constraint firstItem="9XX-Y9-F5y" firstAttribute="leading" secondItem="QWx-r0-eua" secondAttribute="trailing" constant="20" id="UIZ-7S-gKr"/>
                     <constraint firstItem="QWx-r0-eua" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="f0i-Ko-1cS"/>
@@ -51,7 +62,10 @@
                 <outlet property="targetImage" destination="QWx-r0-eua" id="F8n-6Q-Lyz"/>
                 <outlet property="tragetPlace" destination="1Bl-ke-qfe" id="vaL-yH-bB8"/>
             </connections>
-            <point key="canvasLocation" x="111.59420289855073" y="152.67857142857142"/>
+            <point key="canvasLocation" x="-38" y="201"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
